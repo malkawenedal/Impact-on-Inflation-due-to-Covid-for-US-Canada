@@ -1,5 +1,5 @@
 # Impact on Inflation due to Covid for US & Canada
-# Members: Amandeep Kaur, Hira Binth Naseer , Nedal Malkawe , Matthew Phan
+# Members: Amandeep Kaur, Hira Binth Naseer , Nedal Mahanweh , Matthew Phan
 # Fintech Bootcamp @ UFT
 
 ## Message 
