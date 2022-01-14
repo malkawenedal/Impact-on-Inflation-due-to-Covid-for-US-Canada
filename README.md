@@ -85,7 +85,7 @@ create_line_chart(avg_covid_cases["Covid_Cases_CA"],
                  
 
 ```
-![Average Cases both US & Canada Seperate](/images/avg%20covide%20cases%20for%20CA%20and%20US.png")
+![Average Cases both US & Canada Seperate](/images/avg%20covide%20cases%20for%20CA%20and%20US.png)
 
 ```
 
@@ -106,7 +106,7 @@ for index,row in combined_df.iterrows():
 # Plot data using parallel_coordinates plot
 px.parallel_coordinates(correlation)
 ```
-![Correlation Plotly Parallel Coordinates](/images/correlation%20for%20combined%20df%202%20.png)
+![Correlation Plotly Parallel Coordinates](/images/correlation%20%20for%20combined%20df%202%20.png)
 ```
 ## use  heatmap to plot the correlation 
 sns.heatmap(correlation) 
