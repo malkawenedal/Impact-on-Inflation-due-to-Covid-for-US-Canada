@@ -106,7 +106,7 @@ for index,row in combined_df.iterrows():
 # Plot data using parallel_coordinates plot
 px.parallel_coordinates(correlation)
 ```
-![Correlation Plotly Parallel Coordinates](/images/correlation%20for%20combined%20df%202.png)
+![Correlation Plotly Parallel Coordinates](/images/correlation%20for%20combined%20df%202%20.png)
 ```
 ## use  heatmap to plot the correlation 
 sns.heatmap(correlation) 
@@ -129,7 +129,7 @@ correlation
 ```
 covid_db.hvplot()
 ```
-![US & Canada Hvplot cases](/images/covid_cases%20in%20CA%20and%20US%20for%20period.png)
+![US & Canada Hvplot cases](/images/covid_cases%20in%20CA%20and%20US%20for%20period%20.png)
 
 ```
 inflation_rate.rolling(window=7).mean().plot(figsize=(20,7))
@@ -162,4 +162,4 @@ ax.set_ylabel("Inflation US",color="red",fontsize=14)
 # twin object for two different y-axis on the sample plot
 ax2=ax.twinx()
 ```
-![Twin Plot US Inflation / Cases (proper scale)](/twin%20plot.png)
+![Twin Plot US Inflation / Cases (proper scale)](/images/twin%20plot.png)
