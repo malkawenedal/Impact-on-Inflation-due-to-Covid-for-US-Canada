@@ -31,10 +31,24 @@ and a mean.
    Questions: 
    Is there a correlation between rise in covid cases and the headline consumer index for the US and Canada?
    (heatmap, parrallel coordinates, twin plot, plotly)   
-   What is the mean of the inflation of canada and us?
-   Is there correlation between US and Canada inflation?
+   It has been observed that the Covid cases in US have more effect on the US Shelter inflation variable in comparison to covid cases in 
+   Canada. Heat maps and these were chosen as a more deteremined visualization of showing correlation between specific shelters
+   that have inflated during covid times
+   
+   Is there correlation between US and Canada inflation?.
+   There is a direct correlation between inflation and Covid cases. A spike is observed in Q4 
+   of 2020 following to Q1 of 2021 (this may be representing the second WAVE OF Covid).
+   During our data exploration where we used the consumer headline index of inflation in general, there was correlation but not as strong
+   with correlation between us and canada 
+
    What is the average covid cases per month for USA and Canada?
+   Even though the population of US is exponentially larger than Canada, the average cases in both countries have raised at almost an equivalent rate as 
+   observed by the line graphs 
+
    What is the STD of each data set? What will it look like plotted? Can these be plotted in a proper scale?
+   the standard deviation chart is not properly scaled and due to time constraints this is the initial chart this other chart here is what it could look like but it has a 
+   reverse index and without time constraint it could be fixed it looks different than the twin plots earlier but showing deviation the meeting points are still similar and show 
+   different times of different waves 
    Twin Plot reference : https://cmdlinetips.com/2019/10/how-to-make-a-plot-with-two-different-y-axis-in-python-with-matplotlib/
    What will inflation and cases look like plotted?
    What does total covid cases and inflation rate look like on a aggregate chart?
@@ -44,7 +58,23 @@ and a mean.
    to a judgement where there is no relation. This gave us the opportunity to explore further into specific inflation sectors and we intuitively
    decided to examine the Food and Shelter sectors. The Heatmap gives a positive result (high number close to 1) between Food, Shelter, And inflation
    for both countries individually. 
-   
+   The purpose of this project is to determine and analyse Covid 19 
+statistics and final correlation with the inflation of the consumer index 
+for US and Canada.
+•Quantitative analysis methods from Python, Pandas & other data 
+visualization libraries used for assessing various data sets and determine 
+the correlation between inflation & covid cases
+Covid cases dataset – the data was extracted for the 
+two countries only from the 
+global_time_series_data_set. It was cleaned to check for 
+null values and renaming the columns.
+•Inflation dataset – the data was extracted from World 
+Bank for US and from statcan website for Canada. The 
+extremely detailed dataset was extracted to display 
+only the consumer price index. For further analysis; food 
+& shelter component of the inflation was pulled, 
+renamed and merged with the covid dataset using 
+pandas.
   
 These questions were asked because of the noticeable price increases the past few years of many categories including consumer, food, and real estate prices.
 
@@ -59,11 +89,10 @@ Then Hvplot is used for visualizing covid cases for US & Canada
 ```
 covid_db.hvplot()
 ```
-![US & Canada Hvplot cases](/images/covid_cases%20in%20CA%20and%20US%20for%20period%20.png)
-
+![US & Canada Hvplot cases](/images/covid_Us_cases.png)
+![US & Canada Hvplot cases](/images/covid_cases_ca.png)
 
 ```
-skel code
 # create figure and axis objects with subplots()
 std_plot=US_data.rolling(window=7).std()
 
@@ -72,7 +101,29 @@ ax_std.plot(years_months_df["Month & Year"], std_plot["Inflation_US"], marker="o
 ax_std.set_xlabel("Month & Year")
 ```
 ![US Inflation STD & Covid Cases STD](/images/2_seperate_axes_1_plot_twinx_.jpg)
+![Canada Inflation STD & Covid Cases STD](/images/ca_twin.png)
+```
+# Create panels to structure the layout of the dashboard
+geo_column = pn.Column(
+    "## Total number of COVID Cses in US & Canada", covid_db.hvplot(),
+    px.parallel_categories(
+    combined_df,
+    dimensions=["Inflation_CA","Covid_Cases_CA"],
+    color="Inflation_CA",
+),
+    #  Plot  US data  in combined Dataframe using parallel_categories plot
+px.parallel_categories(
+    combined_df,
+    dimensions=["Inflation_US","Covid_Cases_US"],
+    color="Inflation_US",
+)
+)
+```
+![Dashboard](/images/dashboard_1.png)
 
+![Food & Shelter US](/images/bokeh_plot-2.png)
+
+![Food & Shelter Canada](/images/bokeh_plot.png)
 ```
 ax2_std=ax_std.twinx()
 # make a plot with different y-axis using second axis object
@@ -98,7 +149,7 @@ create_line_chart(avg_covid_cases["Covid_Cases_CA"],
                  
 
 ```
-![Average Cases both US & Canada Seperate](/images/avg%20covide%20cases%20for%20CA%20and%20US.png)
+![Average Cases both US & Canada Seperate](/images/avgs.png)
 
 ```
 
