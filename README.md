@@ -49,6 +49,19 @@ and a mean.
 These questions were asked because of the noticeable price increases the past few years of many categories including consumer, food, and real estate prices.
 
 ## Code Snippets & Outputs
+
+There are 4 Jupyter Notebooks for this project:
+File 1: US& CA inflation and covid cases analysis.ipynb
+This file loads and cleans the csv files US&CA Dataset.csv , covid19_confirmed_cases_US_CA.csv , food_shelter_CA_US.csv, into Pandas Dataframes. Column names
+are renamed for organization, nulls are checked to be sure there aren't too many, and data types are checked to see the data sets are matching for plotting and analysis.
+
+Then Hvplot is used for visualizing covid cases for US & Canada
+```
+covid_db.hvplot()
+```
+![US & Canada Hvplot cases](/images/covid_cases%20in%20CA%20and%20US%20for%20period%20.png)
+
+
 ```
 skel code
 # create figure and axis objects with subplots()
@@ -126,10 +139,7 @@ correlation
 ```
 ![Food, Shelter, Inflation Correlation US](/images/correlation%20for%20US.png)
 
-```
-covid_db.hvplot()
-```
-![US & Canada Hvplot cases](/images/covid_cases%20in%20CA%20and%20US%20for%20period%20.png)
+
 
 ```
 inflation_rate.rolling(window=7).mean().plot(figsize=(20,7))
